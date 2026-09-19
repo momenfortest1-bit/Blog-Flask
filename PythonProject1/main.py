@@ -16,13 +16,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
-load_dotenv()
 
 ##CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 gravatar = Gravatar( app, size=50, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
+load_dotenv()
 
 ##CONFIGURE TABLES
 class BlogPost(db.Model):
